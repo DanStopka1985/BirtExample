@@ -79,13 +79,26 @@ public class SimpleCreate
         ImageHandle image = efactory.newImage( null );
         CellHandle cell = (CellHandle) row.getCells( ).get( 0 );
         cell.getContent( ).add( image );
-        image.setURL( "\"urlofimage\"" );
+//        image.setURL( "\"urlofimage\"" );
 
         // Create a label and add it to the second cell.
         LabelHandle label = efactory.newLabel( null );
         cell = (CellHandle) row.getCells( ).get( 1 );
         cell.getContent( ).add( label );
         label.setText( "Hello, world!" );
+
+
+        // Adding DataSource
+        OdaDataSourceHandle dsHandle = efactory.newOdaDataSource("DS", "org.eclipse.birt.report.data.oda.jdbc");
+        dsHandle.setProperty( "odaDriverClass",
+                "org.postgresql.Driver" );
+        dsHandle.setProperty( "odaURL", "jdbc:postgresql://127.0.0.1:6532/iis" );
+        dsHandle.setProperty( "odaUser", "postgres" );
+        dsHandle.setProperty( "odaPassword", "postgres" );
+
+        design.getDataSources( ).add( dsHandle );
+
+
 
         // Save the design and close it.
         design.saveAs( "d:/temp/sample1.rptdesign" );
