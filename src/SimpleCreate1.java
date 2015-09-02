@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Simple BIRT Design Engine API (DEAPI) demo.
  */
-public class SimpleCreate
+public class SimpleCreate1
 {
     public static void main( String[] args )
     {
@@ -61,7 +61,7 @@ public class SimpleCreate
         //Configure the Engine and start the Platform
         DesignConfig config = new DesignConfig( );
 
-        config.setProperty("BIRT_HOME", "d:/birt_runtime/ReportEngine");
+        //config.setProperty("BIRT_HOME", "d:/birt_runtime/ReportEngine");
         IDesignEngine engine = null;
         try
         {
@@ -131,82 +131,65 @@ public class SimpleCreate
 
         design.getDataSets().add(dataSet);
 
-        /**/
-        //IConnection conn = new JDBCInformixJDBCConnection()
-        //IQuery
 
-
-//        IResultSetMetaData md = new I
-//        ResultSetColumns columns = DesignSessionUtil.toResultSetColumnsDesign(md);
-
-        /**/
-
-
-
-
-
-        // Adding Table
-        TableHandle table = eFactory.newTableItem("table", cols.size());
-        table.setWidth("100%");
-        table.setDataSet(design.findDataSet("ds"));
-
-        // Table Binding
-        PropertyHandle computedSet = table.getColumnBindings();
-        ComputedColumn cs1 = null;
-        System.out.println(dataSet.getResultSetNumber());
-
-        for( int i=0; i < cols.size(); i++){
-            cs1 = StructureFactory.createComputedColumn();
-            cs1.setName((String)cols.get(i));
-            cs1.setExpression("dataSetRow[\"" + (String)cols.get(i) + "\"]");
-            computedSet.addItem(cs1);
-        }
-
-        // header defining
-            RowHandle tableHeader = (RowHandle) table.getHeader().get(0);
-            CellHandle h0 = (CellHandle) tableHeader.getCells().get(0);
-            h0.getContent().add(createLabel(eFactory, "label1", "Колонка 1"));
-
-            // detail defining
-            RowHandle tableDetail = (RowHandle) table.getDetail().get(0);
-
-//        for( int i=0; i < cols.size(); i++){
-//            CellHandle c = (CellHandle) tableDetail.getCells( ).get( i );
-//            //DataItemHandle data = eFactory.newDataItem( /*"dataSetRow[\"" +*/(String)cols.get(i)/* + "\"]" */);
-//            TextDataItem data = eFactory.newTextItem(null)
-//            data.setHasExpression(true);
-//            data.setContentType(DesignChoiceConstants.TEXT_DATA_CONTENT_TYPE_AUTO);
-//            data.setValueExpr("row[\"name\"]");
-//            c.getContent( ).add( data );
-//            //c.getContent( ).add(createLabel(eFactory, "label1", "Колонка 1"));
-//        }
-
-
-        for( int i=0; i < cols.size(); i++){
-            CellHandle c = (CellHandle) tableDetail.getCells( ).get( i );
-            DataItemHandle data = eFactory.newDataItem( "data_"+(String)cols.get(i) );
-            data.setResultSetColumn( (String)cols.get(i));
-            c.getContent( ).add( data );
-        }
-
-//        CellHandle c = (CellHandle) tableDetail.getCells( ).get( 0 );
+//        //adding new grid
+//        GridHandle grid1 = eFactory.newGridItem( null, 2 /* cols */, 1 /* row */ );
+//        design.getBody( ).add(grid1);
+//
+//        PropertyHandle computedSet = grid1.getColumnBindings( );
+//        ComputedColumn cs1 = null;
+//
+//
+//        grid1.setDataSet(dataSet);
+//            cs1 = StructureFactory.createComputedColumn();
+//            cs1.setName("name");
+//            cs1.setExpression("dataSetRow[\"name\"]");
+//            computedSet.addItem(cs1);
+//
+//        RowHandle row0 = (RowHandle) grid1.getRows( ).get( 0 );
+//        CellHandle c0 = (CellHandle) row0.getCells().get(0);
+//
+//
 //        TextItemHandle data = eFactory.newTextItem(null);
 //        data.setContentType(DesignChoiceConstants.TEXT_CONTENT_TYPE_HTML);
 //        data.setHasExpression(false);
-//        data.setContent("<H1><VALUE-OF>1</VALUE-OF></H1>");
+//        data.setContent("<H1>1</H1>");
 //        data.setContentKey("a");
-//        c.getContent( ).add( data );
+//        c0.getContent( ).add( data );
+
+
+        DataItemHandle data = null;
+        data = eFactory.newDataItem("asd");
+
+        ComputedColumn cs1 = null;
+        cs1 = StructureFactory.createComputedColumn();
+        cs1.setName("data_name");
+        cs1.setExpression("1+1");
+        cs1.setDataType("integer");
+
+
+        PropertyHandle computedSet = data.getColumnBindings();
+        computedSet.addItem(cs1);
+        //computedSet.getContents()
+
+
+        data.setResultSetColumn("name");
+
+
+        design.getBody( ).add(data);
+
+//        grid1.setDataSet(dataSet);
+//            cs1 = StructureFactory.createComputedColumn();
+//            cs1.setName("name");
+//            cs1.setExpression("dataSetRow[\"name\"]");
+//            computedSet.addItem(cs1);
 
 
 
-        design.getBody().add(table);
-
-
-        //ExpressionUtil
 
 
         // Save the design and close it.
-        design.saveAs( "d:/temp/sample1.rptdesign"); //$NON-NLS-1$//$NON-NLS-2$
+        design.saveAs( "d:/temp/test.rptdesign"); //$NON-NLS-1$//$NON-NLS-2$
         design.close( );
         System.out.println("Finished");
 

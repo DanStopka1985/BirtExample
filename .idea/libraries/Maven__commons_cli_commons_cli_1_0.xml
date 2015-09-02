@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Maven: commons-cli:commons-cli:1.0">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.0/commons-cli-1.0.jar!/" />
+      <root url="file://D:/birt_runtime/ReportEngine/ReportEngine/lib" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.0/commons-cli-1.0-javadoc.jar!/" />
@@ -9,5 +9,6 @@
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/commons-cli/commons-cli/1.0/commons-cli-1.0-sources.jar!/" />
     </SOURCES>
+    <jarDirectory url="file://D:/birt_runtime/ReportEngine/ReportEngine/lib" recursive="false" />
   </library>
 </component>

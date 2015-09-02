@@ -8,20 +8,49 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<!--<dependency>-->
+			<!--<groupId>org.eclipse.birt.runtime</groupId>-->
+			<!--<artifactId>org.eclipse.birt.runtime</artifactId>-->
+			<!--<version>4.4.2</version>-->
+			<!--&lt;!&ndash;<version>3.7.2.v20120214-1408</version>&ndash;&gt;-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.commons</groupId>-->
+			<!--<artifactId>commons-lang3</artifactId>-->
+			<!--<version>3.3.1</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+			<!--&lt;!&ndash;<groupId>org.eclipse.birt.runtime</groupId>&ndash;&gt;-->
+			<!--&lt;!&ndash;<artifactId>org.eclipse.datatools.connectivity.oda</artifactId>&ndash;&gt;-->
+			<!--&lt;!&ndash;<version>3.4.3.v201405301249</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+
+
+		<!--<dependency>-->
+			<!--<groupId>org.mozilla</groupId>-->
+			<!--<artifactId>rhino</artifactId>-->
+			<!--<version>1.7.7</version>-->
+		<!--</dependency>-->
+
+
 		<dependency>
 			<groupId>org.eclipse.birt.runtime</groupId>
 			<artifactId>org.eclipse.birt.runtime</artifactId>
 			<version>4.4.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>org.apache.poi</artifactId>
+					<groupId>org.eclipse.birt.runtime</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.1</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.mozilla</groupId>-->
-			<!--<artifactId>rhino</artifactId>-->
-			<!--<version>1.7R4</version>-->
-		<!--</dependency>-->
 	</dependencies>
+
+
+
 </project>
