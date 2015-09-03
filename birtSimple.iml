@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.mozilla:rhino:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.birt.runtime:org.eclipse.birt.runtime:4.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.birt.runtime:org.eclipse.core.expressions:3.4.500.v20130515-1343" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.birt.runtime:org.eclipse.datatools.connectivity.oda.design:3.3.6.v201212070447" level="project" />

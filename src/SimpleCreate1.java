@@ -2,6 +2,7 @@ import com.ibm.icu.util.ULocale;
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.model.api.*;
 import org.eclipse.birt.report.model.api.activity.SemanticException;
+import org.eclipse.birt.report.model.api.elements.DesignChoiceConstants;
 import org.eclipse.birt.report.model.api.elements.structures.ComputedColumn;
 
 import java.io.IOException;
@@ -157,32 +158,68 @@ public class SimpleCreate1
 //        data.setContentKey("a");
 //        c0.getContent( ).add( data );
 
+////EXPERIMENT
+//        DataItemHandle data = null;
+//        data = eFactory.newDataItem("asd");
+//
+//        ComputedColumn cs1 = null;
+//        cs1 = StructureFactory.createComputedColumn();
+//        cs1.setName("data_name");
+//        cs1.setExpression("1+1");
+//        cs1.setDataType("integer");
+//
+//
+//        PropertyHandle computedSet = data.getColumnBindings();
+//        computedSet.addItem(cs1);
+//        //computedSet.getContents()
+//
+//
+//        data.setResultSetColumn("name");
+//
+//        design.getBody( ).add(data);
 
-        DataItemHandle data = null;
-        data = eFactory.newDataItem("asd");
-
-        ComputedColumn cs1 = null;
-        cs1 = StructureFactory.createComputedColumn();
-        cs1.setName("data_name");
-        cs1.setExpression("1+1");
-        cs1.setDataType("integer");
 
 
-        PropertyHandle computedSet = data.getColumnBindings();
-        computedSet.addItem(cs1);
-        //computedSet.getContents()
 
 
-        data.setResultSetColumn("name");
 
 
-        design.getBody( ).add(data);
+
+
+
+
 
 //        grid1.setDataSet(dataSet);
 //            cs1 = StructureFactory.createComputedColumn();
 //            cs1.setName("name");
 //            cs1.setExpression("dataSetRow[\"name\"]");
 //            computedSet.addItem(cs1);
+
+
+        //adding new grid
+        GridHandle grid1 = eFactory.newGridItem( null, 2 /* cols */, 1 /* row */ );
+        design.getBody( ).add(grid1);
+
+        PropertyHandle computedSet1 = grid1.getColumnBindings( );
+        ComputedColumn cs11 = null;
+
+
+        grid1.setDataSet(dataSet);
+            cs11 = StructureFactory.createComputedColumn();
+            cs11.setName("name");
+            cs11.setExpression("dataSetRow[\"name\"]");
+            computedSet1.addItem(cs11);
+
+        RowHandle row0 = (RowHandle) grid1.getRows( ).get( 0 );
+        CellHandle c0 = (CellHandle) row0.getCells().get(0);
+
+
+        TextItemHandle data1 = eFactory.newTextItem(null);
+        data1.setContentType(DesignChoiceConstants.TEXT_CONTENT_TYPE_HTML);
+        //data1.setHasExpression(false);
+        data1.setContent("<H1><VALUE-OF>row[\"name\"]</VALUE-OF></H1>");
+        data1.setContentKey("a");
+        c0.getContent( ).add( data1 );
 
 
 

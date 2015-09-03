@@ -26,11 +26,11 @@
 		<!--&lt;!&ndash;</dependency>&ndash;&gt;-->
 
 
-		<!--<dependency>-->
-			<!--<groupId>org.mozilla</groupId>-->
-			<!--<artifactId>rhino</artifactId>-->
-			<!--<version>1.7.7</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.mozilla</groupId>
+			<artifactId>rhino</artifactId>
+			<version>1.7.7</version>
+		</dependency>
 
 
 		<dependency>
